@@ -1,18 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Grid from '@material-ui/core/Grid'
+import Layout from './Containers/Layout/Layout';
 
 function App() {
   return (
-    <Grid container direction='coloumn'>
-      <Grid item>
-        Header
-      </Grid>
-      <Grid item container>
-        Content
-      </Grid>
-    </Grid>
+    <Layout>
+      Content
+    </Layout>
   );
 }
 

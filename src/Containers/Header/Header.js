@@ -1,16 +1,15 @@
 import React from 'react'
-import {AppBar, Toolbar, Typography} from '@material-ui/core'
+import { AppBar, Toolbar } from '@material-ui/core'
+import FirstToolbar from '../FirstToolbar/FirstToolbar'
+import MenuBar from '../Menubar/Menubar'
 
-
-
-export default function Header(){
-    return(
-        <AppBar position='static'>
-            <Toolbar>
-                <Typography>
-                    Header
-                </Typography>
-            </Toolbar>
-        </AppBar>
-    )
+export default function Header (props) {
+  return (
+    <AppBar position='static'>
+      <FirstToolbar handleDrawerToggle={props.handleDrawerToggle} />
+      <Toolbar>
+        <MenuBar />
+      </Toolbar>
+    </AppBar>
+  )
 }

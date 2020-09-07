@@ -3,6 +3,7 @@ import {Grid} from "@material-ui/core";
 import MediaCard from "../../Components/MediaCard/MediaCard";
 import Spinner from "../../Components/UI/Spinner/Spinner";
 import Pagination from "@material-ui/lab/Pagination";
+import ErrorModal from "../../Components/UI/ErrorModal";
 
 export default function FirstPageContent() {
 	const [banner, setBanner] = useState();
@@ -18,29 +19,28 @@ export default function FirstPageContent() {
 	useEffect(() => {
 		setLoading(true);
 		fetch("http://apitest.tek-nic.com/movie/FirstPage")
-			.then(res => res.json())
+			.then(res => {
+				setLoading(false);
+				return res.json();
+			})
 			.then(res => {
 				if (res.status === 1) {
 					setBanner(res.result[0].list[0]);
 					setTopMovies(res.result[1].list);
 					setContent(res.result[2].list);
-					setLoading(false);
 				} else {
 					setError(res.message);
-					setLoading(false);
 				}
 			})
 			.catch(err => {
-				console.error(err);
 				setError(err);
-				setLoading(false);
 			});
 	}, []);
 
 	const handlePageChange = (event, value) => {
 		setPage(value);
 		setLoading(true);
-		fetch("http://apitest.tek-nic.com/movie/GetContentList", {
+		fetch("http://apitest.tek-nic.com/movie/GetContentLists", {
 			method: "POST",
 			body: `{
         "request": {
@@ -77,6 +77,13 @@ export default function FirstPageContent() {
 		} else return <Spinner />;
 	};
 
+	const handleErrorAlertClose = (event, reason) => {
+		if (reason === "clickaway") {
+			return;
+		}
+		setError(null);
+	};
+
 	return (
 		<Grid
 			container
@@ -84,6 +91,12 @@ export default function FirstPageContent() {
 			xs={12}
 			spacing={3}
 			justify="center">
+			<ErrorModal
+				open={error}
+				handleClose={handleErrorAlertClose}
+				message={"Network Error : " + error}
+				severity="error"
+			/>
 			{banner &&
 				<MediaCard
 					size={12}

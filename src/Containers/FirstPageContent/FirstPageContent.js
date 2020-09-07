@@ -40,7 +40,7 @@ export default function FirstPageContent() {
 	const handlePageChange = (event, value) => {
 		setPage(value);
 		setLoading(true);
-		fetch("http://apitest.tek-nic.com/movie/GetContentLists", {
+		fetch("http://apitest.tek-nic.com/movie/GetContentList", {
 			method: "POST",
 			body: `{
         "request": {

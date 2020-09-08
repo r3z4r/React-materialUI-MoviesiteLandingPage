@@ -12,9 +12,9 @@ export default function FirstPageContent() {
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const [page, setPage] = useState(1);
-	const [totalPages, setTotalPages] = useState(2);
+	const [totalPages, setTotalPages] = useState(4);
 
-	const pageSize = 12;
+	const pageSize = 8;
 
 	useEffect(() => {
 		setLoading(true);
@@ -67,6 +67,7 @@ export default function FirstPageContent() {
 		if (content && !loading) {
 			return content.map(item =>
 				<MediaCard
+					id={item.ContentID}
 					size={3}
 					title={item.Title}
 					image={item.PortraitImage}
@@ -99,6 +100,7 @@ export default function FirstPageContent() {
 			/>
 			{banner &&
 				<MediaCard
+					id={banner.ContentID}
 					size={12}
 					title={banner.Title}
 					image={banner.ThumbImage}
@@ -108,6 +110,7 @@ export default function FirstPageContent() {
 			{topMovies &&
 				topMovies.map(item =>
 					<MediaCard
+						id={item.ContentID}
 						size={6}
 						title={item.Title}
 						image={item.ThumbImage}
@@ -124,7 +127,7 @@ export default function FirstPageContent() {
 			{contentList()}
 			<Grid container xs={12} justify="center">
 				<Pagination
-					count={content ? totalPages : 2}
+					count={content ? totalPages - 1 : 2}
 					page={page}
 					variant="outlined"
 					shape="rounded"

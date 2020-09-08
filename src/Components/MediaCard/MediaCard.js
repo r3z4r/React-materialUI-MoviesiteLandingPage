@@ -23,6 +23,7 @@ export default function MediaCard(props) {
 			<Card className={classes.root}>
 				<CardActionArea>
 					<CardMedia
+						id={props.id}
 						className={classes.media}
 						image={props.image}
 						title={props.title}

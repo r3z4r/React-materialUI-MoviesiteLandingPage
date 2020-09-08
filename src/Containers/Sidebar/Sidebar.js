@@ -6,10 +6,9 @@ import Hidden from "@material-ui/core/Hidden";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 
-const drawerWidth = 200;
+const drawerWidth = 180;
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -23,7 +22,9 @@ const useStyles = makeStyles(theme => ({
 	},
 	drawerPaper: {
 		width: drawerWidth,
+		marginTop: "10px",
 		top: "auto",
+		left: "1vw",
 	},
 }));
 

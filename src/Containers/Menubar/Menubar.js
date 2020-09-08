@@ -22,9 +22,12 @@ export default function MenuBar () {
       <Typography className = {classes.typos} style={{backgroundColor: 'red'  }}>FANZONE</Typography>
       <span style={{ flexGrow: 1 }} />
       <Tabs
-        aria-label='simple tabs example'
-        value={value}
+          aria-label="scrollable auto tabs example"
+          value={value}
         onChange={handleChange}
+        variant="scrollable"
+          scrollButtons="auto"
+          
 			>
         <Tab label='Home'  />
         <Tab label='Celeberities' />

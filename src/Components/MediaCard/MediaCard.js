@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
 	const classes = useStyles(props);
 	return (
-		<Grid item xs={props.size}>
+		<Grid item sm={props.size}>
 			<Card className={classes.root}>
 				<CardActionArea>
 					<CardMedia

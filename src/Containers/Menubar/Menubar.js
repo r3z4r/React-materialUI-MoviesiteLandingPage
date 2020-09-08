@@ -3,7 +3,7 @@ import { Tabs, Tab, Typography,makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   typos: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display:"none"
     }
   }}))

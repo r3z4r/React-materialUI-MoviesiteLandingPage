@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Grid} from "@material-ui/core";
+import {Grid, Paper, Typography} from "@material-ui/core";
 import MediaCard from "../../Components/MediaCard/MediaCard";
 import Spinner from "../../Components/UI/Spinner/Spinner";
 import Pagination from "@material-ui/lab/Pagination";
@@ -115,6 +115,12 @@ export default function FirstPageContent() {
 						height={240}
 					/>
 				)}
+			{content &&
+				<Grid xs={12}>
+					<Paper style={{padding: "16px", margin: "16px"}} variant={2}>
+						<Typography variant="h6">FEATURED ARTICLES</Typography>
+					</Paper>
+				</Grid>}
 			{contentList()}
 			<Grid container xs={12} justify="center">
 				<Pagination

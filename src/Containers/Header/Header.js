@@ -5,7 +5,7 @@ import MenuBar from "../Menubar/Menubar";
 
 export default function Header(props) {
 	return (
-		<AppBar position="sticky">
+		<AppBar position="sticky" color="transparent">
 			<FirstToolbar handleDrawerToggle={props.handleDrawerToggle} />
 			<Toolbar>
 				<MenuBar />

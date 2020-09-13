@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
 	root: {
@@ -18,9 +19,12 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props) {
 	const classes = useStyles(props);
+	const history = useHistory();
 	return (
 		<Grid item sm={props.size}>
-			<Card className={classes.root}>
+			<Card
+				className={classes.root}
+				onClick={() => history.push(`/movies/${props.id}`)}>
 				<CardActionArea>
 					<CardMedia
 						id={props.id}

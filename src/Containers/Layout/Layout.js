@@ -11,7 +11,7 @@ const Layout = props => {
 	};
 
 	return (
-		<Grid container direction="column" xs={12}>
+		<Grid container direction="column">
 			<Grid xs={12} item>
 				<Header handleDrawerToggle={handleDrawerToggle} />
 			</Grid>
@@ -22,7 +22,7 @@ const Layout = props => {
 						mobileOpen={mobileOpen}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={10}>
+				<Grid item xs={12} sm={9}>
 					{props.children}
 				</Grid>
 				{/* <Grid item xs={false} sm={1} /> */}

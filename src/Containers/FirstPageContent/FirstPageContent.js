@@ -67,6 +67,7 @@ export default function FirstPageContent() {
 		if (content && !loading) {
 			return content.map(item =>
 				<MediaCard
+					key={item.ContentID}
 					id={item.ContentID}
 					size={3}
 					title={item.Title}
@@ -86,12 +87,7 @@ export default function FirstPageContent() {
 	};
 
 	return (
-		<Grid
-			container
-			style={{marginTop: "10px"}}
-			xs={12}
-			spacing={3}
-			justify="center">
+		<Grid container style={{marginTop: "10px"}} spacing={2} justify="center">
 			<ErrorModal
 				open={error}
 				handleClose={handleErrorAlertClose}
@@ -100,6 +96,7 @@ export default function FirstPageContent() {
 			/>
 			{banner &&
 				<MediaCard
+					key={banner.ContentID}
 					id={banner.ContentID}
 					size={12}
 					title={banner.Title}
@@ -110,6 +107,7 @@ export default function FirstPageContent() {
 			{topMovies &&
 				topMovies.map(item =>
 					<MediaCard
+						key={item.ContentID}
 						id={item.ContentID}
 						size={6}
 						title={item.Title}
@@ -119,13 +117,13 @@ export default function FirstPageContent() {
 					/>
 				)}
 			{content &&
-				<Grid xs={12}>
-					<Paper style={{padding: "16px", margin: "16px"}} variant={2}>
+				<Grid item xs={12}>
+					<Paper style={{padding: "16px", margin: "16px"}}>
 						<Typography variant="h6">FEATURED ARTICLES</Typography>
 					</Paper>
 				</Grid>}
 			{contentList()}
-			<Grid container xs={12} justify="center">
+			<Grid container justify="center">
 				<Pagination
 					count={content ? totalPages - 1 : 2}
 					page={page}

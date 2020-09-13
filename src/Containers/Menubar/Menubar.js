@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Tab, Typography,makeStyles } from '@material-ui/core'
+import { Tabs, Tab, Typography,makeStyles  } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   typos: {
@@ -18,8 +18,8 @@ export default function MenuBar () {
   }
   return (
     <>
-      <Typography className = {classes.typos} variant='h4'>CELEBRITIES </Typography>
-      <Typography className = {classes.typos} style={{backgroundColor: 'red'  }}>FANZONE</Typography>
+      <Typography className = {classes.typos} variant='h2'>FAN</Typography>
+      <Typography className = {classes.typos}  variant='h2' color= 'secondary'>ZONE</Typography>
       <span style={{ flexGrow: 1 }} />
       <Tabs
           aria-label="scrollable auto tabs example"
